@@ -39,6 +39,10 @@ body {
   color: var(--main-color-font-primary);
 }
 
+ul {
+  list-style: none;
+}
+
 a:link, a:visited {
   color: var(--main-color-link);
   text-decoration: none;
@@ -114,4 +118,40 @@ button:hover {
 
 h2 {
   margin: 30px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper > form {
+  /* outline: 1px dashed red; */
+}
+
+.wrapper ul {
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  /* outline: 1px dashed red; */
+  border: 1px solid var(--main-color-border);
+  border-radius: var(--main-border-radius);
+  padding: 1rem;
+}
+
+.wrapper > ul > li {
+  padding: .3rem;
+  min-width: 300px;
+  border-bottom: 1px dashed var(--main-color-border);
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper > ul > li:last-child {
+  border-bottom: none;
+}
+
+.wrapper > ul li span:hover {
+  color: rgba(88, 95, 104, 1.0);
 }
