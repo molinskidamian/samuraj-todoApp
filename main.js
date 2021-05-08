@@ -1,58 +1,19 @@
-const btn = document.querySelector('button[name="btn-add"]');
-let trashList = document.querySelectorAll('span.fa-trash');
-const input = document.querySelector('input[name="todo"]');
-const ul = document.querySelector('.todo-list');
-const liItems = document.querySelectorAll('.todo-list > li');
-const wrapper = document.querySelector('.wrapper');
-let arrItems = [];
+const doneTask = (e) => {
+  const elementDone = e.target.parentNode.parentNode;
+  console.log(elementDone);
 
-// Add item
-const showList = () => {
-    const li = document.createElement('li');
-    const actions = document.createElement('div');
-    actions.classList.add('actions');
-
-    const completed = document.createElement('span');
-    completed.classList.add('fas', 'fa-check');
-    actions.appendChild(completed);
-
-    const trash = document.createElement('span');
-    trash.classList.add('fas', 'fa-trash');
-    actions.appendChild(trash);
-
-    li.textContent = input.value;
-    li.appendChild(actions);
-    ul.appendChild(li);
-
-  console.dir(arrItems);
+  elementDone.classList.toggle('finished');
 }
 
-const addItemToList = () => {
-  const item = {
-      value: input.value,
-  };
-  arrItems.push(item);
-  showList();
+const removeTask = (e) => {
+  const elemenToRemove = e.target.parentNode.parentNode;
+  elemenToRemove.remove();
 }
 
-const filterInput = () => {
+document.querySelectorAll(".fa-trash").forEach((item) => {
+    item.addEventListener("click", removeTask);
+});
 
-  if (input.value === "") {
-      console.log("Pusto tu");
-      return false;
-  }
-
-  addItemToList();
-}
-
-const addItem = (e) => {
-  e.preventDefault();
-  filterInput();
-}
-
-btn.addEventListener('click', addItem);
-
-// Remove form list
-
-
-// Done
+document.querySelectorAll('.fa-check').forEach(item => {
+  item.addEventListener('click', doneTask);
+})
