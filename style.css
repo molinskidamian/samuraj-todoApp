@@ -155,3 +155,19 @@ h2 {
 .wrapper > ul li span:hover {
   color: rgba(88, 95, 104, 1.0);
 }
+
+.actions {
+  /* outline: 1px dashed red; */
+  min-width: 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.finished {
+  color: rgba(88, 95, 104, 1.0);
+}
+
+li.finished:hover {
+    color: white;
+
+}
